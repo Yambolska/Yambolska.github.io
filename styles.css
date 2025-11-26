@@ -95,3 +95,103 @@ nav ul li a:hover {
         font-size: 18px;
     }
 }
+/* GENERIC PAGE LAYOUT */
+.page {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.page h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+}
+
+/* PROJECT CARD */
+.project-card {
+    background-color: #151515;
+    border-radius: 10px;
+    padding: 24px 22px;
+    border: 1px solid #262626;
+    margin-bottom: 30px;
+}
+
+.project-card h2 {
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 22px;
+}
+
+.project-tag {
+    margin-top: 0;
+    margin-bottom: 18px;
+    font-size: 13px;
+    color: #9a9a9a;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.project-summary {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+/* MINI BAR CHART */
+.mini-chart h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #b6b6b6;
+}
+
+.mini-chart ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0 0 14px 0;
+}
+
+.mini-chart li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.mini-chart .label {
+    width: 90px;
+    color: #cfcfcf;
+}
+
+.mini-chart .bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, #2bdcff, #2b8fff);
+    opacity: 0.9;
+}
+
+.mini-chart .value {
+    width: 50px;
+    text-align: right;
+    color: #9a9a9a;
+    font-variant-numeric: tabular-nums;
+}
+
+/* relative widths, Kazakhstan = 100 */
+.bar-100 { width: 100%; }
+.bar-31  { width: 31%; }
+.bar-26  { width: 26%; }
+.bar-17  { width: 17%; }
+.bar-07  { width: 7%;  }
+.bar-05  { width: 5%;  }
+
+/* secondary button */
+.btn.secondary {
+    border-color: #555;
+    color: #dcdcdc;
+}
+.btn.secondary:hover {
+    border-color: #2bdcff;
+}
