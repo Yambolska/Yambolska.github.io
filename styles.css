@@ -195,3 +195,9 @@ nav ul li a:hover {
 .btn.secondary:hover {
     border-color: #2bdcff;
 }
+nav .logo {
+    font-size: 26px;
+}
+.landing h1 {
+    font-size: 40px;
+}
