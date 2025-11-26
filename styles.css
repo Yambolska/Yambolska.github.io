@@ -242,3 +242,20 @@ nav .logo {
     }
 }
 
+.full-chart {
+    margin: 24px 0;
+}
+
+.full-chart img {
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #262626;
+}
+
+.full-chart figcaption {
+    font-size: 13px;
+    color: #9a9a9a;
+    margin-top: 6px;
+}
+
+
