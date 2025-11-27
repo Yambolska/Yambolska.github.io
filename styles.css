@@ -289,4 +289,60 @@ nav .logo {
     font-size: 0.9rem;
     color: #60a5fa;
 }
+/* === ARTICLE PAGE LAYOUT === */
+
+.article-page {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+/* Ana başlık + üst satır */
+.article-page h1 {
+    font-size: 2.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-lead {
+    font-size: 0.85rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 1.75rem;
+}
+
+/* Her bölüm küçük kart gibi dursun */
+.article-page section {
+    margin-bottom: 1.8rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: 12px;
+    background: #020617;
+    border: 1px solid #111827;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+/* Bölüm başlıkları */
+.article-page section h2 {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+/* Metin & listeler */
+.article-page p,
+.article-page li {
+    font-size: 0.97rem;
+    line-height: 1.6;
+    color: #e5e7eb;
+}
+
+.article-page ul {
+    margin-top: 0.4rem;
+    margin-bottom: 0.8rem;
+    padding-left: 1.25rem;
+}
+
+/* “Conversation is open” kısmı biraz ayrışsın */
+.article-page section:last-of-type {
+    border-color: #2563eb;
+}
 
