@@ -179,14 +179,6 @@ nav ul li a:hover {
     font-variant-numeric: tabular-nums;
 }
 
-/* relative widths, Kazakhstan = 100 */
-.bar-100 { width: 100%; }
-.bar-31  { width: 31%; }
-.bar-26  { width: 26%; }
-.bar-17  { width: 17%; }
-.bar-07  { width: 7%;  }
-.bar-05  { width: 5%;  }
-
 /* secondary button */
 .btn.secondary {
     border-color: #555;
@@ -258,4 +250,43 @@ nav .logo {
     margin-top: 6px;
 }
 
+.article-card {
+    display: block;
+    padding: 1.5rem 1.75rem;
+    margin-top: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #1f2937;
+    background: #020617;
+    text-decoration: none;
+    transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+}
+
+.article-card:hover {
+    border-color: #3b82f6;
+    background: #030712;
+    transform: translateY(-1px);
+}
+
+.article-card h2 {
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+    color: #e5e7eb;
+}
+
+.article-tag {
+    font-size: 0.85rem;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+}
+
+.article-summary {
+    font-size: 0.95rem;
+    color: #d1d5db;
+    margin-bottom: 0.75rem;
+}
+
+.article-link {
+    font-size: 0.9rem;
+    color: #60a5fa;
+}
 
