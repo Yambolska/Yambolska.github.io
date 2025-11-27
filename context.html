@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Data Alone Is Not Enough — Context Matters — Clsknlyst</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html" class="logo">Clsknlyst</a>
+        <ul>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="articles.html" class="active">Articles</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page">
+    <a href="articles.html" class="btn secondary" style="margin-bottom:20px;">← Back to Articles</a>
+
+    <h1>Why Data Alone Is Not Enough — Context Matters</h1>
+    <p class="project-tag">Numbers show what happens — context explains why.</p>
+
+    <section>
+        <p>
+            In data analysis, there is often an unspoken assumption that numbers are objective and
+            decisive — that if you measure something precisely enough, the truth will reveal
+            itself. But in real-world systems, metrics show <strong>what happened</strong> —
+            not <strong>why it happened</strong>.
+        </p>
+        <p>
+            As analysts, our job is not only to calculate metrics, but to connect them with
+            human behavior, domain realities and context. Otherwise, the story we tell with data
+            can be technically correct and practically wrong.
+        </p>
+    </section>
+
+    <section>
+        <h2>E-commerce example</h2>
+        <p><strong>Data:</strong><br>
+           Cart abandonment rate increased from 64% to 79%.
+        </p>
+        <p><strong>If you only look at data, you might think:</strong></p>
+        <ul>
+            <li>Pricing is too high</li>
+            <li>Users are indecisive</li>
+            <li>Competition became stronger</li>
+        </ul>
+        <p><strong>But when you add context:</strong></p>
+        <ul>
+            <li>A shipping provider updated their API → checkout started failing on mobile</li>
+            <li>A new CAPTCHA slowed down the last step</li>
+            <li>Payment friction increased in some countries</li>
+        </ul>
+        <p>
+            Numbers alone only show abandonment. Context reveals the
+            <strong>user frustration</strong> behind it.
+        </p>
+    </section>
+
+    <section>
+        <h2>Banking &amp; Finance example</h2>
+        <p><strong>Data:</strong><br>
+           Transaction volume drops every month on day 28.
+        </p>
+        <p><strong>On a pure numerical view:</strong></p>
+        <ul>
+            <li>Users are less active</li>
+            <li>Loyalty is declining</li>
+        </ul>
+        <p><strong>But context reveals:</strong></p>
+        <ul>
+            <li>
+                Day 28 is when salaries run out in several markets → cash liquidity drops →
+                spending volume goes down.
+            </li>
+        </ul>
+        <p>
+            Same data, different interpretation — the correct conclusion only comes with
+            real-world context.
+        </p>
+    </section>
+
+    <section>
+        <h2>Supply chain example</h2>
+        <p><strong>Data:</strong><br>
+           Delivery delays increased by 23%.
+        </p>
+        <p><strong>Interpretation without context:</strong></p>
+        <ul>
+            <li>Warehouse is inefficient</li>
+            <li>Logistics team is slow</li>
+            <li>Inventory is mismanaged</li>
+        </ul>
+        <p><strong>Context reveals:</strong></p>
+        <ul>
+            <li>Extreme weather disrupted two distribution regions</li>
+            <li>A port strike paused inbound freight</li>
+        </ul>
+        <p>
+            No amount of SQL or clustering would give you that insight by itself — you need
+            operational knowledge and external information.
+        </p>
+    </section>
+
+    <section>
+        <h2>Healthcare example</h2>
+        <p><strong>Data:</strong><br>
+           Patient no-show rate increased for medical appointments.
+        </p>
+        <p><strong>Raw conclusion:</strong></p>
+        <ul>
+            <li>Patients are unreliable</li>
+            <li>Appointment reminders are ineffective</li>
+        </ul>
+        <p><strong>Contextual reality:</strong></p>
+        <ul>
+            <li>A bus route change made it physically harder to reach the clinic</li>
+            <li>Scheduling overlapped with working hours for lower-income patients</li>
+        </ul>
+        <p>
+            Numbers suggest behavior. Context reveals <strong>accessibility and social
+            constraints</strong>.
+        </p>
+    </section>
+
+    <section>
+        <h2>Food &amp; Consumption example</h2>
+        <p><strong>Data:</strong><br>
+           Demand for a product spikes in specific months.
+        </p>
+        <p><strong>Without context:</strong></p>
+        <ul>
+            <li>Maybe because of marketing</li>
+            <li>Maybe just random volatility</li>
+        </ul>
+        <p><strong>Context:</strong></p>
+        <ul>
+            <li>Seasonal consumption patterns (e.g. ice cream in summer)</li>
+            <li>Cultural holidays (e.g. certain foods during Ramadan, Thanksgiving, Lunar New Year)</li>
+        </ul>
+        <p>
+            Numbers alone cannot capture <strong>social meaning</strong>.
+        </p>
+    </section>
+
+    <section>
+        <h2>In gaming</h2>
+        <p>
+            Gameplay analytics also benefit from context. Data alone might show:
+        </p>
+        <ul>
+            <li>Error exposure</li>
+            <li>Win rate</li>
+            <li>Retention</li>
+            <li>Monetization</li>
+        </ul>
+        <p>
+            But context explains things like:
+        </p>
+        <ul>
+            <li>Frustration thresholds</li>
+            <li>Psychological investment</li>
+            <li>Device quality differences</li>
+            <li>Network conditions</li>
+            <li>Cultural playstyles</li>
+            <li>Social and competitive motivations</li>
+        </ul>
+        <p>
+            For example: a user with many sessions and many errors does not mean errors
+            increase engagement. It may simply mean a highly engaged player has
+            <strong>more opportunities</strong> to encounter bugs.
+        </p>
+    </section>
+
+    <section>
+        <h2>The real job of a data analyst</h2>
+        <p>
+            Good analytics is not only:
+        </p>
+        <ul>
+            <li>SQL queries</li>
+            <li>Dashboards</li>
+            <li>Percentiles</li>
+            <li>Clustering</li>
+            <li>Metrics</li>
+        </ul>
+        <p>
+            Real analytics is combining data with <strong>domain knowledge</strong>,
+            <strong>UX understanding</strong> and <strong>human context</strong>.
+        </p>
+        <p>
+            In every field — e-commerce, banking, gaming, healthcare, logistics — the pattern
+            is the same:
+        </p>
+        <ul>
+            <li><strong>Data gives us signal.</strong></li>
+            <li><strong>Context gives us meaning.</strong></li>
+        </ul>
+        <p>
+            Data without context leads to wrong conclusions.<br>
+            Context without data leads to intuition-based guessing.<br>
+            <strong>True insight requires both.</strong>
+        </p>
+    </section>
+
+    <section>
+        <h2>Conversation is open</h2>
+        <p>
+            If this way of thinking about data resonates with you — or if you’d like to discuss
+            analytics, product decisions or user behavior in more depth —
+            <strong>conversation is open</strong>. Feel free to reach out:
+        </p>
+        <ul>
+            <li>
+                LinkedIn:
+                <a href="https://www.linkedin.com/in/ismail-caliskan" target="_blank">
+                    www.linkedin.com/in/ismail-caliskan
+                </a>
+            </li>
+            <li>
+                GitHub:
+                <a href="https://github.com/Yambolska" target="_blank">
+                    github.com/Yambolska
+                </a>
+            </li>
+        </ul>
+        <p>
+            I’m always open to exchanging ideas about data, metrics and how they connect
+            back to real human behavior.
+        </p>
+    </section>
+</main>
+</body>
+</html>
 
