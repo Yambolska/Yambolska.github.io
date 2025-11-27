@@ -85,6 +85,32 @@
         </p>
     </section>
 
+        <!-- 3.1 RAW vs PROCESSED -->
+    <section>
+        <h2>Before &amp; After: Raw vs Processed Data</h2>
+        <p>
+            Before any processing, the data is a raw event log: each row represents one user-day
+            with session counts, match counts, errors and revenue for that specific date.
+            At this stage, the dataset is useful for time-series checks, but it is not yet ideal
+            for understanding player-level behavior.
+        </p>
+        <p>
+            After aggregation and feature engineering, each player is represented by a single record
+            with total and average metrics across the 29-day window. This user-level view makes it
+            possible to segment players, measure value per user and compare behavior across
+            countries, platforms and error buckets.
+        </p>
+
+        <figure class="full-chart">
+            <img src="assets/task2_raw_info.png" alt="Raw dataframe shape, columns and dtypes" />
+            <figcaption>
+                Raw dataframe overview: shape, columns and dtypes before aggregation. Each row is one
+                user-day with session, match, error and revenue information.
+            </figcaption>
+        </figure>
+    </section>
+
+
     <!-- 4. METHODOLOGY -->
     <section>
         <h2>Methodology</h2>
@@ -108,7 +134,7 @@
         <h2>Visual Overview</h2>
 
         <figure class="full-chart">
-            <img src="assets/task2_Revenue_Breakdown_by_Month.png" alt="Revenue Breakdown by month />
+            <img src="assets/task2_Revenue_Breakdown_by_Month.png" alt="Revenue Breakdown by month" />
             <figcaption>
                 Monthly MAU, total revenue, ARPU and ARPPU. MAU and engagement are stable between
                 February and March, while payer count decreases slightly and ARPPU increases,
@@ -212,7 +238,24 @@
             <li>Match → Payer: ~1.4% — consistent with a F2P model where only a small group monetizes.</li>
             <li>Median Time-to-First-Purchase is 30–60 days for most paying clusters; VIPs tend to convert later but at much higher value.</li>
         </ul>
+
+        <h3>TTFP by Cluster</h3>
+        <p>
+            Time to First Purchase (TTFP) links <em>who pays the most</em> with 
+            <em>when they start paying</em>. Looking at median TTFP by cluster:
+        </p>
+        <ul>
+            <li><strong>Cluster 0 – early heavy spenders (~34 days)</strong>: high engagement and meaningful spend, first purchase typically around the first month.</li>
+            <li><strong>Cluster 2 – mid-engagement core (~41 days)</strong>: large F2P core that converts within a reasonable 30–60 day window.</li>
+            <li><strong>Cluster 3 – VIP / whales (~66.5 days)</strong>: convert later, after 2+ months of play, but have by far the highest revenue per user.</li>
+            <li><strong>Cluster 1 – low-engagement, very late / almost never (~200+ days)</strong>: most users never convert; this is mainly an activation &amp; early-retention problem, not a monetization one.</li>
+        </ul>
+        <p>
+            This pattern supports a retention-first model: players usually need weeks of consistent
+            play before they start spending, especially in the high-value whale segments.
+        </p>
     </section>
+    
 
     <!-- 7. STRATEGIC RECOMMENDATIONS -->
     <section>
@@ -256,6 +299,31 @@
             stabilize the experience for heavy/whale segments, and ensure that in key markets the
             technical quality is too good to give high-value players a reason to leave.
         </p>
+                <h3>Full Notebook &amp; Code</h3>
+        <p>
+            This page is a high-level summary of the analysis. For a more detailed, code-level
+            view of the data preparation, feature engineering and modelling, you can check the
+            full notebook and source code on GitHub:
+        </p>
+        <ul>
+            <li>
+                Case study repo:
+                <a href="https://github.com/Yambolska/vertigo_games" target="_blank">
+                    github.com/Yambolska/vertigo_games
+                </a>
+            </li>
+            <li>
+                GitHub profile:
+                <a href="https://github.com/Yambolska" target="_blank">
+                    github.com/Yambolska
+                </a>
+            </li>
+        </ul>
+        <p>
+            The notebooks document each step in more depth, including metric definitions,
+            clustering setup, TTFP calculations and additional diagnostic plots.
+        </p>
+
     </section>
 </main>
 </body>
