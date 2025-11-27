@@ -380,9 +380,9 @@ nav .logo {
 }
 
 /* ICON IMAGES */
-.icon.github { background-image: url('assets/icons/github.svg'); }
-.icon.kaggle { background-image: url('assets/icons/kaggle.svg'); }
-.icon.linkedin { background-image: url('assets/icons/linkedin.svg'); }
-.icon.email { background-image: url('assets/icons/email.svg'); }
-.icon.thesis { background-image: url('assets/icons/document.svg'); }
+.icon.github { background-image: url('assets/icons/github.png'); }
+.icon.kaggle { background-image: url('assets/icons/kaggle.png'); }
+.icon.linkedin { background-image: url('assets/icons/linkedin.png'); }
+.icon.email { background-image: url('assets/icons/email.png'); }
+.icon.thesis { background-image: url('assets/icons/document.png'); }
 
