@@ -23,306 +23,152 @@
     <a href="projects.html" class="btn secondary" style="margin-bottom:20px;">← Back to Projects</a>
 
     <h1>Mobile Game User Behavior, Monetization &amp; Error Analysis</h1>
-    <p class="case-lead">CASE STUDY · MID-CORE MOBILE FPS · 2.45M+ USERS</p>
+    <p class="case-lead">Case Study · Mid-Core Mobile FPS · 2.45M+ Users</p>
 
-    <!-- 1. PROJECT DESCRIPTION -->
     <section>
-        <h2>Project Description</h2>
+        <h2>Overview</h2>
         <p>
-            This project analyzes player behavior in a mid-core mobile FPS game in order to
-            understand engagement, longevity, monetization patterns and the impact of technical
-            issues on user experience. The goal is to provide data-driven insights that support
-            product development, user retention optimization and revenue growth.
-        </p>
-        <p>
-            The analysis is based on a 29-day window of daily user activity and combines
-            behavioral feature engineering, segmentation (K-Means clustering), funnel analysis
-            and error-based profiling to connect in-game metrics with real user value.
+            This case study analyzes player behavior in a mid-core mobile FPS game to understand
+            engagement, retention, monetization patterns and the impact of technical stability on
+            user experience. Using a 29-day event window, more than <strong>7.29M</strong> daily
+            activity rows were aggregated into a user-level dataset and connected to business
+            outcomes such as ARPU, ARPPU and revenue concentration.
         </p>
     </section>
 
-    <!-- 2. PURPOSE & KEY QUESTIONS -->
-    <section>
-        <h2>Purpose &amp; Key Questions</h2>
-        <p>Key questions addressed in this study include:</p>
-        <ul>
-            <li>How do players engage with the game over time (days played, sessions, playtime)?</li>
-            <li>How can users be segmented based on behavioral patterns and performance?</li>
-            <li>Which user types demonstrate higher retention and long-term engagement?</li>
-            <li>Which user profiles generate the most revenue (ARPU / ARPPU / whales)?</li>
-            <li>How do player behaviors differ between iOS and Android?</li>
-            <li>How does user value and stability vary by country?</li>
-            <li>How do connection errors impact user experience and monetization?</li>
-        </ul>
-        <p>
-            These questions are directly relevant to long-term product and growth decisions for
-            the game: live-ops design, pricing, targeting and technical priorities.
-        </p>
-    </section>
-
-    <!-- 3. DATASET & METRICS -->
-    <section>
-        <h2>Dataset &amp; Core Metrics</h2>
-        <p>
-            The raw dataset contains <strong>7,293,526</strong> daily activity rows, aggregated
-            into a user-level dataset of ~<strong>2.45M</strong> unique players with the following
-            core fields:
-        </p>
-        <ul>
-            <li><code>user_id</code>, <code>event_date</code>, <code>install_date</code></li>
-            <li><code>platform</code> (iOS / Android), <code>country</code></li>
-            <li>Usage: <code>total_session_count</code>, <code>total_session_duration</code></li>
-            <li>Matches: <code>match_start_count</code>, <code>match_end_count</code>, <code>victory_count</code>, <code>defeat_count</code></li>
-            <li>Quality: <code>server_connection_error</code></li>
-            <li>Monetization: <code>iap_revenue</code>, <code>ad_revenue</code></li>
-        </ul>
-        <p>
-            On top of these, user-level derived metrics were defined, such as:
-            <code>days_played</code>, <code>sessions_per_day</code>, <code>avg_session_duration</code>,
-            <code>match_intensity</code>, <code>matches_per_session</code>, <code>win_rate</code>,
-            <code>completion_rate</code>, <code>play_intensity</code>, <code>error_rate</code> and
-            <code>total_revenue</code> = IAP + ads.
-        </p>
-    </section>
-
-        <!-- 3.1 RAW vs PROCESSED -->
-    <section>
-        <h2>Before &amp; After: Raw vs Processed Data</h2>
-        <p>
-            Before any processing, the data is a raw event log: each row represents one user-day
-            with session counts, match counts, errors and revenue for that specific date.
-            At this stage, the dataset is useful for time-series checks, but it is not yet ideal
-            for understanding player-level behavior.
-        </p>
-        <p>
-            After aggregation and feature engineering, each player is represented by a single record
-            with total and average metrics across the 29-day window. This user-level view makes it
-            possible to segment players, measure value per user and compare behavior across
-            countries, platforms and error buckets.
-        </p>
-
-        <figure class="full-chart">
-            <img src="assets/task2_raw_info.png" alt="Raw dataframe shape, columns and dtypes" />
-            <figcaption>
-                Raw dataframe overview: shape, columns and dtypes before aggregation. Each row is one
-                user-day with session, match, error and revenue information.
-            </figcaption>
-        </figure>
-    </section>
-
-
-    <!-- 4. METHODOLOGY -->
     <section>
         <h2>Methodology</h2>
-        <p>The analytical workflow consisted of:</p>
+        <p>
+            The analysis combines behavioral feature engineering, clustering, funnel analysis and
+            error-bucket profiling:
+        </p>
         <ul>
-            <li><strong>Data cleaning &amp; type normalization</strong> (dates, numerics, missing values).</li>
-            <li><strong>Aggregation</strong> from daily rows to a single user-level record per player.</li>
-            <li><strong>Derived metric creation</strong> to capture behavior, quality and monetization.</li>
-            <li><strong>Descriptive statistics</strong> (distributions, percentiles, skewness).</li>
-            <li><strong>User segmentation</strong> using K-Means on behavioral &amp; monetization features.</li>
-            <li><strong>Monetization analysis</strong> (ARPU, ARPPU, whales, revenue share).</li>
-            <li><strong>Country &amp; platform breakdowns</strong> (ARPU, error rate, engagement).</li>
-            <li><strong>Error-bucket analysis</strong> connecting stability with behavior &amp; revenue.</li>
-            <li><strong>Funnel analysis</strong> from install → session → match → payer.</li>
-            <li><strong>Time-to-First-Purchase (TTFP)</strong> by segment and cluster.</li>
+            <li>
+                Built user-level metrics:
+                <code>days_played</code>, <code>sessions_per_day</code>, <code>avg_session_duration</code>,
+                <code>play_intensity</code>, <code>match_intensity</code>, <code>win_rate</code>,
+                <code>completion_rate</code>, <code>error_rate</code> and
+                <code>total_revenue</code> (IAP + ads)
+            </li>
+            <li>
+                Performed user segmentation (K-Means) to distinguish trial users, F2P core,
+                heavy spenders and VIP / whale clusters
+            </li>
+            <li>
+                Evaluated monetization via payer rate, ARPU, ARPPU, whale share and revenue share by cluster
+            </li>
+            <li>
+                Ran <em>Install → Session → Match → Payer</em> funnels and Time-to-First-Purchase (TTFP)
+                by segment
+            </li>
+            <li>
+                Compared country and platform (iOS vs Android) on engagement, ARPU, payer rate
+                and <code>error_rate</code>
+            </li>
+            <li>
+                Linked <code>server_connection_error</code> buckets to retention and revenue to
+                quantify the impact of technical issues
+            </li>
         </ul>
     </section>
 
-    <!-- 5. VISUAL OVERVIEW -->
     <section>
-        <h2>Visual Overview</h2>
-
-        <figure class="full-chart">
-            <img src="assets/task2_Revenue_Breakdown_by_Month.png" alt="Revenue Breakdown by month" />
-            <figcaption>
-                Monthly MAU, total revenue, ARPU and ARPPU. MAU and engagement are stable between
-                February and March, while payer count decreases slightly and ARPPU increases,
-                indicating stronger concentration among high-value spenders.
-            </figcaption>
-        </figure>
-
-        <figure class="full-chart">
-            <img src="assets/task2_turetilmis_metrikler.png" alt="Distribution of user-level metrics" />
-            <figcaption>
-                Distributions of days played, total sessions, total playtime and matches per user.
-                All key behavioral metrics are heavily right-skewed: a small minority of heavy players
-                generate most of the activity.
-            </figcaption>
-        </figure>
-
-        <figure class="full-chart">
-            <img src="assets/task2_KMeans_Cluster.png" alt="User behavior clusters using K-Means" />
-            <figcaption>
-                K-Means clustering on behavioral &amp; monetization features. Clusters distinguish
-                low-engagement trials, a large F2P core, heavy spenders and a tiny VIP / whale group.
-            </figcaption>
-        </figure>
+        <h2>Key Insights</h2>
+        <ul>
+            <li>
+                The game follows a classic F2P pattern: many low-engagement trial users, with revenue
+                concentrated in a small heavy / whale core (≈1.4% payer rate, ARPPU 30+).
+            </li>
+            <li>
+                Behavioral metrics clearly separate “try-and-leave” users from long-term adopters;
+                whales show high <code>play_intensity</code>, <code>win_rate</code> and
+                <code>sessions_per_day</code>.
+            </li>
+            <li>
+                TTFP is typically 30–60 days, and VIPs convert even later, confirming a
+                retention-first, monetization-second model.
+            </li>
+            <li>
+                Error analysis shows that <strong>mid_error</strong> users are heavy, valuable players,
+                while <strong>extreme_error</strong> users churn quickly with near-zero revenue — severe
+                instability is lethal for both retention and monetization.
+            </li>
+            <li>
+                Country and platform breakdowns highlight high-value markets (e.g. US, Türkiye, Brazil)
+                and regions where high <code>error_rate</code> blocks monetization, especially on Android.
+            </li>
+        </ul>
+        <p>
+            These findings translate into concrete product recommendations for onboarding and funnel
+            optimization, live-ops and offer design for whales, regional pricing and localization,
+            and technical stability priorities — linking game design and infrastructure decisions
+            directly to user retention and revenue growth.
+        </p>
     </section>
 
-    <!-- 6. KEY FINDINGS -->
     <section>
-        <h2>Key Findings</h2>
-
-        <h3>Engagement &amp; Behavior</h3>
-        <ul>
-            <li>Most users play only on a single day, with 1–2 short sessions and a few matches.</li>
-            <li>A much smaller segment plays on many days with multiple sessions and high playtime per day.</li>
-            <li>Behavioral metrics (sessions_per_day, play_intensity, match_intensity, win_rate, completion_rate) clearly separate “try-and-leave” users from long-term adopters.</li>
-        </ul>
-
-        <h3>Monetization &amp; Revenue Concentration</h3>
-        <ul>
-            <li>Payer rate is ~1.4% of the total population, with ARPU ≈ 0.44 and ARPPU ≈ 30+.</li>
-            <li>~86% of revenue comes from IAP and ~14% from ads — the economy is strongly IAP-first.</li>
-            <li>Revenue is extremely skewed: the top 1% of users log in frequently, play intensely, win often and contribute a very large share of total revenue.</li>
-        </ul>
+        <h2>Visuals</h2>
 
         <figure class="full-chart">
-            <img src="assets/task2_Revenue_Share_Pie.png" alt="Revenue share by user cluster" />
+            <img src="assets/task2_Revenue_Breakdown_by_Month.png" alt="Revenue and MAU breakdown by month" />
             <figcaption>
-                Revenue and user share by cluster. A small heavy-spender and VIP segment contributes
-                a disproportionate share of total revenue, while most users remain low-value F2P.
+                Monthly MAU, total revenue, ARPU and ARPPU. Engagement is stable while payer mix shifts
+                slightly toward higher ARPPU.
             </figcaption>
         </figure>
 
-        <h3>Segmentation &amp; Clusters</h3>
-        <ul>
-            <li><strong>Cluster 3</strong>: tiny VIP / ultra-whale segment with extremely high ARPPU.</li>
-            <li><strong>Cluster 0</strong>: heavy spenders with high engagement and strong revenue per user.</li>
-            <li><strong>Cluster 2</strong>: large F2P core with good engagement but low monetization per user.</li>
-            <li><strong>Cluster 1</strong>: low-engagement, almost non-monetizing segment; a retention / activation problem rather than a monetization one.</li>
-        </ul>
+        <figure class="full-chart">
+            <img src="assets/task2_KMeans_Cluster.png" alt="K-Means user behavior clusters" />
+            <figcaption>
+                K-Means clustering separates trial users, F2P core, heavy spenders and a small VIP / whale
+                cluster with very high revenue per user.
+            </figcaption>
+        </figure>
 
-        <h3>Error Buckets &amp; Technical Quality</h3>
         <figure class="full-chart">
             <img src="assets/task2_engagement_error.png" alt="Engagement and revenue by error bucket" />
             <figcaption>
-                Comparison of engagement and average revenue across error buckets
-                (low, mid, high, extreme). Mid-error users are heavy players with high value;
-                extreme-error users have almost no revenue and churn quickly.
+                Engagement and average revenue across error buckets. Mid-error players are highly engaged
+                and valuable; extreme-error users churn early with almost no revenue.
             </figcaption>
         </figure>
-        <ul>
-            <li><strong>Mid_error</strong> segment shows the highest play_intensity and revenue per user — heavy players naturally encounter some errors.</li>
-            <li><strong>Extreme_error</strong> users have very low days_played, weak performance and near-zero revenue.</li>
-            <li>Severe, persistent errors are lethal for both retention and monetization, especially early in the lifecycle.</li>
-        </ul>
 
-        <h3>Country &amp; Platform Differences</h3>
         <figure class="full-chart">
             <img src="assets/task2_revenue_share_heatmap.png" alt="Revenue share and error rate by country" />
             <figcaption>
-                Heatmap of revenue share vs. error rate by country. Countries combining high revenue
-                share with elevated error rates are prime targets for stability work.
+                Revenue share vs. error rate by country. Markets combining high revenue and high error
+                are strong candidates for stability-focused engineering work.
             </figcaption>
         </figure>
-        <ul>
-            <li>United States has the strongest ARPU and payer rate — the single most important whale market.</li>
-            <li>Türkiye and Brazil show high engagement and strong monetization potential, with room to improve stability and pricing/localization.</li>
-            <li>Russia, Ukraine, Mexico, Kazakhstan show higher error rates and under-monetization — technical issues are likely blocking revenue.</li>
-            <li>iOS users have lower error rate and a higher share of whales compared to Android.</li>
-        </ul>
 
-        <h3>Funnel &amp; Time-to-First-Purchase</h3>
         <figure class="full-chart">
             <img src="assets/task2_install_revenue.png" alt="Install to payer funnel" />
             <figcaption>
-                Install → Session → Match → Payer funnel. Almost everyone opens the game, but
-                only a small fraction converts to payers after playing matches.
+                Install → Session → Match → Payer funnel. Almost all installers open the game, but only a
+                small fraction convert into payers after playing matches.
             </figcaption>
         </figure>
-        <ul>
-            <li>Install → Session: ~99.9% — store page and first launch are not the core problem.</li>
-            <li>Session → Match: ~82% — the first match experience is a critical drop-off point.</li>
-            <li>Match → Payer: ~1.4% — consistent with a F2P model where only a small group monetizes.</li>
-            <li>Median Time-to-First-Purchase is 30–60 days for most paying clusters; VIPs tend to convert later but at much higher value.</li>
-        </ul>
-
-        <h3>TTFP by Cluster</h3>
-        <p>
-            Time to First Purchase (TTFP) links <em>who pays the most</em> with 
-            <em>when they start paying</em>. Looking at median TTFP by cluster:
-        </p>
-        <ul>
-            <li><strong>Cluster 0 – early heavy spenders (~34 days)</strong>: high engagement and meaningful spend, first purchase typically around the first month.</li>
-            <li><strong>Cluster 2 – mid-engagement core (~41 days)</strong>: large F2P core that converts within a reasonable 30–60 day window.</li>
-            <li><strong>Cluster 3 – VIP / whales (~66.5 days)</strong>: convert later, after 2+ months of play, but have by far the highest revenue per user.</li>
-            <li><strong>Cluster 1 – low-engagement, very late / almost never (~200+ days)</strong>: most users never convert; this is mainly an activation &amp; early-retention problem, not a monetization one.</li>
-        </ul>
-        <p>
-            This pattern supports a retention-first model: players usually need weeks of consistent
-            play before they start spending, especially in the high-value whale segments.
-        </p>
     </section>
-    
 
-    <!-- 7. STRATEGIC RECOMMENDATIONS -->
     <section>
-        <h2>Strategic Recommendations</h2>
-        <h3>Retention &amp; Funnel Optimization</h3>
-        <ul>
-            <li>Improve onboarding and pre-match UX to reduce Session → Match drop-offs.</li>
-            <li>Strengthen first-week experience with missions, rewards and clear progression.</li>
-            <li>Focus on keeping players active through the first 30–60 days, where most conversions happen.</li>
-        </ul>
-
-        <h3>Whale &amp; Core Player Strategy</h3>
-        <ul>
-            <li>Invest in mid/late-game content: ranked modes, clans, tournaments, social systems.</li>
-            <li>Design segmented offers: low-friction starter packs for mid-core; high-value bundles for heavy / VIP clusters.</li>
-            <li>Protect the retention of Cluster 0 &amp; 3 players — losing a single VIP is very costly.</li>
-        </ul>
-
-        <h3>Technical &amp; Regional Priorities</h3>
-        <ul>
-            <li>Prioritize error reduction in countries with both high revenue share and high error rates (e.g., Brazil, Russia, Ukraine).</li>
-            <li>Identify device / OS / network combinations that over-index in the extreme_error bucket and address their issues first.</li>
-            <li>Improve Android stability to close the gap with iOS in both experience and monetization.</li>
-        </ul>
-
-        <h3>Pricing &amp; Localization</h3>
-        <ul>
-            <li>Use regional pricing and localized packs in high-engagement, price-sensitive markets (e.g., Türkiye, Brazil, Southeast Asia).</li>
-            <li>Align events and live-ops with time zones and cultural patterns in top whale regions.</li>
-        </ul>
-
-        <h3>Big Picture</h3>
+        <h2>Notebook &amp; Code</h2>
         <p>
-            The game runs on a classic F2P pattern: millions of low-engagement trials and a much
-            smaller, extremely valuable heavy core. The monetization model is effectively
-            “retention-first, monetization-second”: players need to adopt the game and build a
-            habit before significant spending happens.
-        </p>
-        <p>
-            To keep this model healthy, the product should: strengthen early retention, deepen and
-            stabilize the experience for heavy/whale segments, and ensure that in key markets the
-            technical quality is too good to give high-value players a reason to leave.
-        </p>
-                <h3>Full Notebook &amp; Code</h3>
-        <p>
-            This page is a high-level summary of the analysis. For a more detailed, code-level
-            view of the data preparation, feature engineering and modelling, you can check the
-            full notebook and source code on GitHub:
+            The full notebook includes the entire workflow: metric definitions, clustering setup,
+            TTFP analysis and additional diagnostic plots. For a deeper dive into the code and
+            implementation details, you can explore the GitHub repository:
         </p>
         <ul>
             <li>
-                Case study repo:
                 <a href="https://github.com/Yambolska/vertigo_games" target="_blank" class="icon github"></a>
-                </a>
-            </li>
-            <li>
-                GitHub profile:
                 <a href="https://github.com/Yambolska" target="_blank" class="icon github"></a>
                 </a>
             </li>
         </ul>
-        <p>
-            The notebooks document each step in more depth, including metric definitions,
-            clustering setup, TTFP calculations and additional diagnostic plots.
-        </p>
-
     </section>
+
 </main>
 </body>
 </html>
+
+                <a href="https://github.com/Yambolska/vertigo_games" target="_blank" class="icon github"></a>
+
