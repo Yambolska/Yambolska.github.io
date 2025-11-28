@@ -16,79 +16,87 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-    </nav>
+    </n6av>
 </header>
 
 <main class="page case-page">
     <a href="projects.html" class="btn secondary" style="margin-bottom:20px;">← Back to Projects</a>
 
-    <h1>Loan Default Prediction — Credit Risk Modeling</h1>
-    <p class="case-lead">Lending Club loan status prediction with ML models</p>
+    <h1>Lending Club Loan Default Prediction — Credit Risk Modeling</h1>
+<p class="case-lead">Credit repayment forecasting using real consumer loan data</p>
 
-    <section>
-        <h2>Project Overview</h2>
-        <p>
-            This project uses a real-world Lending Club loan dataset to build a model that predicts
-            whether a loan will be fully paid or defaulted. The workflow combines data analysis,
-            feature engineering and model experimentation to obtain a reliable credit risk signal.
-        </p>
-    </section>
+<section>
+    <h2>Project Overview</h2>
+    <p>
+        This project uses real Lending Club loan data to build a machine learning model that predicts whether a loan will be fully paid or defaulted. The analysis focuses on how borrower characteristics, credit history and financial indicators correlate with repayment risk, and how clean feature engineering and model selection can improve predictive performance.
+    </p>
+</section>
 
-    <section>
-        <h2>Data Analysis &amp; Feature Engineering</h2>
-        <ul>
-            <li>Inspected missing values and applied selective imputation or removal</li>
-            <li>Identified highly correlated features and reduced multicollinearity</li>
-            <li>Dropped high-cardinality features with low predictive value</li>
-            <li>Converted <code>loan_status</code> into a binary target (Fully Paid vs. Charged Off)</li>
-            <li>Applied one-hot encoding to categorical features for model compatibility</li>
-        </ul>
-    </section>
+<section>
+    <h2>Data Preparation & Feature Engineering</h2>
+    <ul>
+        <li>Missing values analyzed and imputed or strategically dropped</li>
+        <li>High-cardinality and redundant categorical features removed</li>
+        <li>Created a binary target <code>loan_paid</code> from <code>loan_status</code></li>
+        <li>One-hot encoded categorical variables</li>
+        <li>Identified correlated features and reduced multicollinearity</li>
+        <li>Adjusted for class imbalance and focused on precision/recall and F1-score metrics</li>
+    </ul>
+</section>
 
-    <section>
-        <h2>Class Imbalance Handling</h2>
-        <p>
-            The target distribution is imbalanced: “Fully Paid” loans are much more frequent than
-            “Charged Off”. Because of this, simple accuracy would be misleading, so the evaluation
-            focuses on:
-        </p>
-        <ul>
-            <li>Precision</li>
-            <li>Recall</li>
-            <li>F1-score</li>
-        </ul>
-        <p>
-            This helps to better understand how well the model identifies truly risky loans
-            instead of just predicting the majority class.
-        </p>
-    </section>
+<section>
+    <h2>Exploratory Insights</h2>
+    <ul>
+        <li>Loan grade strongly correlates with default likelihood</li>
+        <li>Lower grades (F and G) show extremely high default ratios</li>
+        <li>Loan amount and installment are nearly perfectly correlated</li>
+        <li>Most features provide independent predictive signals</li>
+        <li>Employment length and job title showed weak predictive power and were dropped</li>
+    </ul>
+</section>
 
-    <section>
-        <h2>Models Used</h2>
-        <ul>
-            <li>Random Forest</li>
-            <li>Neural Network (Keras / TensorFlow)</li>
-            <li>XGBoost</li>
-        </ul>
-        <p>
-            Different models were trained and compared. XGBoost showed strong performance on
-            non-linear relationships and sparse features, while Random Forest and the neural
-            network provided useful baselines for benchmarking.
-        </p>
-    </section>
+<section>
+    <h2>Imbalance & Evaluation Approach</h2>
+    <p>
+        Because “Fully Paid” loans significantly outnumber “Charged Off” loans, accuracy alone would be misleading. Therefore evaluation emphasized:
+    </p>
+    <ul>
+        <li>Recall for identifying defaults</li>
+        <li>Precision of default predictions</li>
+        <li>F1-score as the balanced measure</li>
+    </ul>
+</section>
 
-    <section>
-        <h2>Key Insights &amp; Outcomes</h2>
-        <ul>
-            <li>Loan grade (especially lower grades such as F and G) is a strong predictor of default risk.</li>
-            <li>The strong correlation between loan amount and installment guided feature selection.</li>
-            <li>Cleaning, encoding and targeted feature engineering had a clear impact on model quality.</li>
-        </ul>
-        <p>
-            The final setup provides a practical foundation for a credit risk scoring pipeline
-            that can be adapted to fintech or lending products.
-        </p>
-    </section>
+<section>
+    <h2>Models Used</h2>
+    <p>Several machine learning models were implemented and compared:</p>
+    <ul>
+        <li>Random Forest — AUC: 0.89</li>
+        <li>Keras Neural Network — AUC: 0.90</li>
+        <li>XGBoost — AUC: 0.91</li>
+    </ul>
+    <p>
+        All models demonstrated strong predictive capability with XGBoost performing the best overall, consistent with its strength on tabular datasets. Tree-based models also allow for feature importance analysis, improving interpretability for financial risk teams.
+    </p>
+</section>
+
+<section>
+    <h2>Key Findings</h2>
+    <ul>
+        <li>All tested models effectively differentiate between fully-paid and charged-off loans</li>
+        <li>XGBoost is slightly superior and the most reliable model for production use</li>
+        <li>Tree-based models are highly interpretable for financial decision-support systems</li>
+        <li>Deep learning performs well, but does not significantly outperform boosted trees in this context</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Final Conclusion</h2>
+    <p>
+        This project shows how real consumer loan application data can be transformed into actionable default-risk predictions using structured feature engineering and machine learning. XGBoost offers the best balance of performance and interpretability, making it suitable for credit scoring applications. With further tuning and potential ensembling, the predictive framework could support underwriting decisions, reduce default exposure, and strengthen credit portfolio risk management.
+    </p>
+</section>
+
 
     <section>
         <h2>Visuals</h2>
