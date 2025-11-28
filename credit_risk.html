@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Risk Modeling — Clsknlyst</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header>
+    <nav>
+        <a href="index.html" class="logo">Clsknlyst</a>
+        <ul>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="page case-page">
+    <a href="projects.html" class="btn secondary" style="margin-bottom:20px;">← Back to Projects</a>
+
+    <h1>Loan Default Prediction — Credit Risk Modeling</h1>
+    <p class="case-lead">Lending Club loan status prediction with ML models</p>
+
+    <section>
+        <h2>Project Overview</h2>
+        <p>
+            This project uses a real-world Lending Club loan dataset to build a model that predicts
+            whether a loan will be fully paid or defaulted. The workflow combines data analysis,
+            feature engineering and model experimentation to obtain a reliable credit risk signal.
+        </p>
+    </section>
+
+    <section>
+        <h2>Data Analysis &amp; Feature Engineering</h2>
+        <ul>
+            <li>Inspected missing values and applied selective imputation or removal</li>
+            <li>Identified highly correlated features and reduced multicollinearity</li>
+            <li>Dropped high-cardinality features with low predictive value</li>
+            <li>Converted <code>loan_status</code> into a binary target (Fully Paid vs. Charged Off)</li>
+            <li>Applied one-hot encoding to categorical features for model compatibility</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Class Imbalance Handling</h2>
+        <p>
+            The target distribution is imbalanced: “Fully Paid” loans are much more frequent than
+            “Charged Off”. Because of this, simple accuracy would be misleading, so the evaluation
+            focuses on:
+        </p>
+        <ul>
+            <li>Precision</li>
+            <li>Recall</li>
+            <li>F1-score</li>
+        </ul>
+        <p>
+            This helps to better understand how well the model identifies truly risky loans
+            instead of just predicting the majority class.
+        </p>
+    </section>
+
+    <section>
+        <h2>Models Used</h2>
+        <ul>
+            <li>Random Forest</li>
+            <li>Neural Network (Keras / TensorFlow)</li>
+            <li>XGBoost</li>
+        </ul>
+        <p>
+            Different models were trained and compared. XGBoost showed strong performance on
+            non-linear relationships and sparse features, while Random Forest and the neural
+            network provided useful baselines for benchmarking.
+        </p>
+    </section>
+
+    <section>
+        <h2>Key Insights &amp; Outcomes</h2>
+        <ul>
+            <li>Loan grade (especially lower grades such as F and G) is a strong predictor of default risk.</li>
+            <li>The strong correlation between loan amount and installment guided feature selection.</li>
+            <li>Cleaning, encoding and targeted feature engineering had a clear impact on model quality.</li>
+        </ul>
+        <p>
+            The final setup provides a practical foundation for a credit risk scoring pipeline
+            that can be adapted to fintech or lending products.
+        </p>
+    </section>
+
+    <section>
+        <h2>Visuals</h2>
+        <figure class="full-chart">
+            <img src="assets/credit_confusion_matrix.png" alt="Confusion matrix for loan default prediction" />
+            <figcaption>
+                Confusion matrix illustrating performance on the minority “Charged Off” class.
+                The focus is on balancing recall and precision rather than only maximizing accuracy.
+            </figcaption>
+        </figure>
+
+        <figure class="full-chart">
+            <img src="assets/credit_feature_importance.png" alt="Feature importance plot for the credit risk model" />
+            <figcaption>
+                Feature importance from the tree-based model, highlighting loan grade, interest rate
+                and debt-related variables among the top drivers of default risk.
+            </figcaption>
+        </figure>
+    </section>
+
+    <section>
+        <h2>More Detail on Kaggle</h2>
+        <p>
+            For a more detailed, code-level walkthrough of preprocessing steps, model training,
+            hyperparameter choices and evaluation, the full notebook is available on Kaggle.
+        </p>
+
+        <div class="project-footer-icons">
+            <a href="https://www.kaggle.com/code/ismailcalskan/loan-status-prediction-lending-club-data-science"
+               target="_blank"
+               class="icon kaggle"
+               title="View full notebook on Kaggle">
+            </a>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
