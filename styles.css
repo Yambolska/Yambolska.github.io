@@ -351,6 +351,12 @@ nav .logo {
     padding-left: 1.25rem;
 }
 
+.case-page section {
+    border: 1px solid #0f2a46;
+    background: #011423;
+}
+
+
 /* Article'da son bölüm, case'de de son bölüm hafif vurgulu */
 .article-page section:last-of-type,
 .case-page section:last-of-type {
